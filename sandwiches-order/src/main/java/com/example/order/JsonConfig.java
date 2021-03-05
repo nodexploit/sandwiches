@@ -39,6 +39,6 @@ public class JsonConfig {
 
     @Bean
     public MessageConverter messageConverter() {
-        return new JsonMessageConverter();
+        return new JsonMessageConverter(objectMapper());
     }
 }

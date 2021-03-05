@@ -1,14 +1,12 @@
 package com.example.order;
 
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Value;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Value
 @Builder(toBuilder = true)
+@JsonDeserialize(builder = UserMadeOrderEvent.UserMadeOrderEventBuilder.class)
 public class UserMadeOrderEvent {
     String name;
     String userId;
