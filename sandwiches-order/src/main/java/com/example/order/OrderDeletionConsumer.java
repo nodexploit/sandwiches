@@ -12,7 +12,7 @@ public class OrderDeletionConsumer {
 
     private final OrderRepository orderRepository;
 
-    @KafkaListener(topics = "users-deleted", groupId = "order-group", concurrency = "1")
+    @KafkaListener(topics = "users-deleted", groupId = "order-group")
     public void handleMessage(UserDeletedEvent event) {
         log.info("Event {}", event);
         orderRepository.deleteAll(orderRepository.findAllByUserId(event.getUserId()));
