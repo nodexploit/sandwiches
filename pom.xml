@@ -22,8 +22,9 @@
     </properties>
 
     <modules>
-        <module>sandwiches-user</module>
+        <module>sandwiches-invoice</module>
         <module>sandwiches-order</module>
+        <module>sandwiches-user</module>
     </modules>
 
 </project>

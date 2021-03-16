@@ -5,8 +5,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.rest.core.annotation.HandleAfterDelete;
 import org.springframework.data.rest.core.annotation.RepositoryEventHandler;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.stereotype.Component;
 
 @Slf4j
+@Component
 @AllArgsConstructor
 @RepositoryEventHandler
 public class UserRepositoryEventHandler {
@@ -15,7 +17,7 @@ public class UserRepositoryEventHandler {
 
     @HandleAfterDelete
     public void handleUserAfterDelete(User user) {
-        log.info("Inside User After Delete...");
+        log.info("Deleted user {}", user.getId());
         kafkaTemplate.send("users-deleted", UserDeletedEvent.of(user.getId()));
     }
 }
