@@ -12,10 +12,10 @@ import java.time.Instant;
 
 @Value
 @Builder(toBuilder = true)
-@Document("users-deleted")
+@Document("users-updated")
 @EqualsAndHashCode(of = "id")
-@JsonDeserialize(builder = UserDeletedEvent.UserDeletedEventBuilder.class)
-public class UserDeletedEvent {
+@JsonDeserialize(builder = UserUpdatedEvent.UserUpdatedEventBuilder.class)
+public class UserUpdatedEvent {
     @Id
     String id;
     String userId;
@@ -23,8 +23,8 @@ public class UserDeletedEvent {
     String email;
     Instant timestamp;
 
-    public static UserDeletedEvent from(User user) {
-        return new UserDeletedEvent(
+    public static UserUpdatedEvent from(User user) {
+        return new UserUpdatedEvent(
                 new ObjectId().toString(),
                 user.getId(),
                 user.getName(),
