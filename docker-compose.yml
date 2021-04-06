@@ -6,7 +6,7 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: password
-      MONGO_INITDB_DATABASE: sandwichesdb
+      MONGO_INITDB_DATABASE: sandwichesuserdb
     ports:
       - "27025:27017"
     volumes:
